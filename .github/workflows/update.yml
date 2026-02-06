@@ -1,0 +1,30 @@
+name: Daily ISP Update
+
+on:
+  schedule:
+    - cron: '0 20 * * *' # 每天北京时间凌晨 4 点运行 (UTC 20:00)
+  workflow_dispatch:      # 允许你点击按钮手动立即运行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 执行转换脚本
+        run: python main.py
+
+      - name: 提交并推送到仓库
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "自动更新 ISP 列表"
+          file_pattern: '*.rsc'
