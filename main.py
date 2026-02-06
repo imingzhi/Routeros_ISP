@@ -1,7 +1,6 @@
 import requests
-import os
 
-# 你提供的最新数据源
+# 数据源配置
 ISP_DATA = {
     "ISP_Telecom": {
         "url": "https://metowolf.github.io/iplist/data/isp/chinatelecom.txt",
@@ -17,33 +16,42 @@ ISP_DATA = {
     }
 }
 
-def generate_rsc():
-    for list_name, info in ISP_DATA.items():
-        try:
-            print(f"正在从 {info['url']} 获取 {info['comment']} 数据...")
-            # 增加 timeout 防止网络僵死
-            response = requests.get(info['url'], timeout=30)
-            response.raise_for_status()
+def generate_combined_rsc():
+    filename = "ISP.rsc"
+    print(f"开始生成合并文件: {filename}")
+    
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            # 1. 写入脚本头部（整个文件只需要一行）
+            f.write("/ip firewall address-list\n")
             
-            ips = response.text.strip().split('\n')
-            filename = f"{list_name}.rsc"
-            
-            with open(filename, 'w', encoding='utf-8') as f:
-                # 写入 ROS 脚本头部
-                f.write("/ip firewall address-list\n")
-                # 清理旧数据，防止重复。注意：这里 list 名称使用的是 ISP_Telecom 等。
-                f.write(f"remove [find list=\"{list_name}\"]\n")
-                
-                for ip in ips:
-                    ip = ip.strip()
-                    if ip:
-                        # 格式示例：add list=ISP_Telecom address=1.2.3.4 comment="中国电信"
-                        f.write(f"add list=\"{list_name}\" address={ip} comment=\"{info['comment']}\"\n")
-            
-            print(f"✅ 成功生成 {filename}，共计 {len(ips)} 条网段。")
-            
-        except Exception as e:
-            print(f"❌ 处理 {list_name} 时发生错误: {e}")
+            # 2. 遍历每个运营商
+            for list_name, info in ISP_DATA.items():
+                print(f"正在获取 {info['comment']} 的数据...")
+                try:
+                    response = requests.get(info['url'], timeout=30)
+                    response.raise_for_status()
+                    ips = response.text.strip().split('\n')
+                    
+                    # 3. 先写入删除该运营商旧数据的命令，确保不重复
+                    f.write(f"remove [find list=\"{list_name}\"]\n")
+                    
+                    # 4. 逐行写入 IP 条目
+                    count = 0
+                    for ip in ips:
+                        ip = ip.strip()
+                        if ip:
+                            f.write(f"add list=\"{list_name}\" address={ip} comment=\"{info['comment']}\"\n")
+                            count += 1
+                    print(f"✅ {info['comment']} 处理完成，共 {count} 条。")
+                    
+                except Exception as e:
+                    print(f"❌ 获取 {info['comment']} 失败: {e}")
+                    
+        print(f"\n✨ 所有数据已成功整合至 {filename}")
+
+    except Exception as e:
+        print(f"❌ 写入文件时发生致命错误: {e}")
 
 if __name__ == "__main__":
-    generate_rsc()
+    generate_combined_rsc()
