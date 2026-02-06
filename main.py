@@ -1,4 +1,5 @@
 import requests
+import time
 
 # 数据源配置
 ISP_DATA = {
@@ -16,42 +17,64 @@ ISP_DATA = {
     }
 }
 
-def generate_combined_rsc():
+def generate_isp_rsc():
     filename = "ISP.rsc"
-    print(f"开始生成合并文件: {filename}")
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    }
     
+    # 获取当前北京时间
+    update_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    
+    print(f"[{update_time}] 开始生成合并文件...")
+
+    # 使用 Session 提高效率
+    session = requests.Session()
+    session.headers.update(headers)
+
     try:
         with open(filename, 'w', encoding='utf-8') as f:
-            # 1. 写入脚本头部（整个文件只需要一行）
+            # 1. 写入文件注释头
+            f.write(f"# Generated on {update_time}\n")
+            f.write("# This script will auto-remove old entries and add new ones\n\n")
+            
+            # 2. 写入主指令
             f.write("/ip firewall address-list\n")
             
-            # 2. 遍历每个运营商
+            total_count = 0
+            
             for list_name, info in ISP_DATA.items():
-                print(f"正在获取 {info['comment']} 的数据...")
+                print(f"正在抓取 {info['comment']}...")
                 try:
-                    response = requests.get(info['url'], timeout=30)
+                    response = session.get(info['url'], timeout=20)
                     response.raise_for_status()
-                    ips = response.text.strip().split('\n')
                     
-                    # 3. 先写入删除该运营商旧数据的命令，确保不重复
+                    ips = [line.strip() for line in response.text.split('\n') if line.strip()]
+                    
+                    if not ips:
+                        print(f"⚠️ 警告: {info['comment']} 获取的数据为空，跳过该运营商。")
+                        continue
+                        
+                    # 写入该运营商的清理指令
+                    f.write(f"\n# --- {info['comment']} START ---\n")
                     f.write(f"remove [find list=\"{list_name}\"]\n")
                     
-                    # 4. 逐行写入 IP 条目
-                    count = 0
+                    # 批量写入添加指令
                     for ip in ips:
-                        ip = ip.strip()
-                        if ip:
-                            f.write(f"add list=\"{list_name}\" address={ip} comment=\"{info['comment']}\"\n")
-                            count += 1
-                    print(f"✅ {info['comment']} 处理完成，共 {count} 条。")
+                        f.write(f"add list=\"{list_name}\" address={ip} comment=\"{info['comment']}\"\n")
+                    
+                    count = len(ips)
+                    total_count += count
+                    print(f"✅ {info['comment']} 完成: {count} 条条目。")
                     
                 except Exception as e:
-                    print(f"❌ 获取 {info['comment']} 失败: {e}")
-                    
-        print(f"\n✨ 所有数据已成功整合至 {filename}")
+                    print(f"❌ {info['comment']} 抓取失败: {e}")
+            
+            f.write(f"\n# Total entries: {total_count}\n")
+            print(f"\n✨ 生成成功！总条目: {total_count}。文件: {filename}")
 
     except Exception as e:
-        print(f"❌ 写入文件时发生致命错误: {e}")
+        print(f"🔥 写入文件时发生致命错误: {e}")
 
 if __name__ == "__main__":
-    generate_combined_rsc()
+    generate_isp_rsc()
