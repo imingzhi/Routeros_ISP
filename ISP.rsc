@@ -1,4 +1,9 @@
+# Generated on 2026-02-06 17:32:54
+# This script will auto-remove old entries and add new ones
+
 /ip firewall address-list
+
+# --- 中国电信 START ---
 remove [find list="ISP_Telecom"]
 add list="ISP_Telecom" address=1.0.1.0/24 comment="中国电信"
 add list="ISP_Telecom" address=1.0.2.0/23 comment="中国电信"
@@ -3062,6 +3067,8 @@ add list="ISP_Telecom" address=223.214.0.0/15 comment="中国电信"
 add list="ISP_Telecom" address=223.220.0.0/15 comment="中国电信"
 add list="ISP_Telecom" address=223.240.0.0/13 comment="中国电信"
 add list="ISP_Telecom" address=223.255.252.0/23 comment="中国电信"
+
+# --- 中国联通 START ---
 remove [find list="ISP_Unicom"]
 add list="ISP_Unicom" address=1.8.0.0/24 comment="中国联通"
 add list="ISP_Unicom" address=1.8.2.0/23 comment="中国联通"
@@ -5075,6 +5082,8 @@ add list="ISP_Unicom" address=223.167.172.0/24 comment="中国联通"
 add list="ISP_Unicom" address=223.167.222.0/23 comment="中国联通"
 add list="ISP_Unicom" address=223.167.230.0/24 comment="中国联通"
 add list="ISP_Unicom" address=223.167.252.0/22 comment="中国联通"
+
+# --- 中国移动 START ---
 remove [find list="ISP_Mobile"]
 add list="ISP_Mobile" address=36.128.0.0/13 comment="中国移动"
 add list="ISP_Mobile" address=36.136.0.0/14 comment="中国移动"
@@ -6669,3 +6678,5 @@ add list="ISP_Mobile" address=223.120.0.0/15 comment="中国移动"
 add list="ISP_Mobile" address=223.122.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=223.123.128.0/17 comment="中国移动"
 add list="ISP_Mobile" address=223.124.0.0/14 comment="中国移动"
+
+# Total entries: 6667
