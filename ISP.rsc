@@ -1,4 +1,4 @@
-# Generated on 2026-02-10 20:33:59
+# Generated on 2026-02-11 20:28:10
 # This script will auto-remove old entries and add new ones
 
 /ip firewall address-list
@@ -5413,6 +5413,7 @@ add list="ISP_Mobile" address=112.51.112.0/20 comment="中国移动"
 add list="ISP_Mobile" address=112.51.128.0/17 comment="中国移动"
 add list="ISP_Mobile" address=112.52.0.0/14 comment="中国移动"
 add list="ISP_Mobile" address=112.56.0.0/13 comment="中国移动"
+add list="ISP_Mobile" address=115.180.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=116.253.2.0/24 comment="中国移动"
 add list="ISP_Mobile" address=117.128.4.0/22 comment="中国移动"
 add list="ISP_Mobile" address=117.128.8.0/21 comment="中国移动"
@@ -5478,6 +5479,7 @@ add list="ISP_Mobile" address=117.187.168.0/21 comment="中国移动"
 add list="ISP_Mobile" address=117.187.176.0/20 comment="中国移动"
 add list="ISP_Mobile" address=117.187.192.0/18 comment="中国移动"
 add list="ISP_Mobile" address=117.188.0.0/14 comment="中国移动"
+add list="ISP_Mobile" address=118.204.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=120.192.0.0/18 comment="中国移动"
 add list="ISP_Mobile" address=120.192.64.0/20 comment="中国移动"
 add list="ISP_Mobile" address=120.192.80.0/22 comment="中国移动"
@@ -5775,6 +5777,7 @@ add list="ISP_Mobile" address=120.246.125.0/24 comment="中国移动"
 add list="ISP_Mobile" address=120.248.0.0/14 comment="中国移动"
 add list="ISP_Mobile" address=120.253.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=120.254.0.0/15 comment="中国移动"
+add list="ISP_Mobile" address=121.70.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=122.70.0.0/15 comment="中国移动"
 add list="ISP_Mobile" address=122.77.240.0/24 comment="中国移动"
 add list="ISP_Mobile" address=122.84.0.0/16 comment="中国移动"
@@ -5810,6 +5813,7 @@ add list="ISP_Mobile" address=123.136.8.0/23 comment="中国移动"
 add list="ISP_Mobile" address=123.136.10.0/24 comment="中国移动"
 add list="ISP_Mobile" address=123.136.12.0/23 comment="中国移动"
 add list="ISP_Mobile" address=123.136.14.0/24 comment="中国移动"
+add list="ISP_Mobile" address=124.201.0.0/17 comment="中国移动"
 add list="ISP_Mobile" address=161.81.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=163.53.56.0/22 comment="中国移动"
 add list="ISP_Mobile" address=175.50.220.0/22 comment="中国移动"
@@ -6679,4 +6683,4 @@ add list="ISP_Mobile" address=223.122.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=223.123.128.0/17 comment="中国移动"
 add list="ISP_Mobile" address=223.124.0.0/14 comment="中国移动"
 
-# Total entries: 6667
+# Total entries: 6671
