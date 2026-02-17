@@ -1,4 +1,4 @@
-# Generated on 2026-02-16 20:18:14
+# Generated on 2026-02-17 20:25:31
 # This script will auto-remove old entries and add new ones
 
 /ip firewall address-list
@@ -729,8 +729,7 @@ add list="ISP_Telecom" address=113.16.40.0/22 comment="中国电信"
 add list="ISP_Telecom" address=113.16.44.0/23 comment="中国电信"
 add list="ISP_Telecom" address=113.16.103.0/24 comment="中国电信"
 add list="ISP_Telecom" address=113.16.192.0/21 comment="中国电信"
-add list="ISP_Telecom" address=113.16.205.0/24 comment="中国电信"
-add list="ISP_Telecom" address=113.16.206.0/23 comment="中国电信"
+add list="ISP_Telecom" address=113.16.204.0/22 comment="中国电信"
 add list="ISP_Telecom" address=113.16.208.0/20 comment="中国电信"
 add list="ISP_Telecom" address=113.16.224.0/19 comment="中国电信"
 add list="ISP_Telecom" address=113.17.0.0/19 comment="中国电信"
@@ -936,8 +935,8 @@ add list="ISP_Telecom" address=116.252.143.0/24 comment="中国电信"
 add list="ISP_Telecom" address=116.252.196.0/23 comment="中国电信"
 add list="ISP_Telecom" address=116.253.0.0/23 comment="中国电信"
 add list="ISP_Telecom" address=116.253.22.0/23 comment="中国电信"
-add list="ISP_Telecom" address=116.253.24.0/22 comment="中国电信"
-add list="ISP_Telecom" address=116.253.28.0/24 comment="中国电信"
+add list="ISP_Telecom" address=116.253.24.0/21 comment="中国电信"
+add list="ISP_Telecom" address=116.253.56.0/21 comment="中国电信"
 add list="ISP_Telecom" address=116.253.69.0/24 comment="中国电信"
 add list="ISP_Telecom" address=116.253.70.0/23 comment="中国电信"
 add list="ISP_Telecom" address=116.253.208.0/20 comment="中国电信"
@@ -1411,7 +1410,7 @@ add list="ISP_Telecom" address=180.138.176.0/23 comment="中国电信"
 add list="ISP_Telecom" address=180.138.178.0/24 comment="中国电信"
 add list="ISP_Telecom" address=180.138.192.0/19 comment="中国电信"
 add list="ISP_Telecom" address=180.138.224.0/20 comment="中国电信"
-add list="ISP_Telecom" address=180.138.240.0/22 comment="中国电信"
+add list="ISP_Telecom" address=180.138.240.0/21 comment="中国电信"
 add list="ISP_Telecom" address=180.138.252.0/22 comment="中国电信"
 add list="ISP_Telecom" address=180.139.96.0/21 comment="中国电信"
 add list="ISP_Telecom" address=180.139.104.0/22 comment="中国电信"
@@ -6613,4 +6612,4 @@ add list="ISP_Mobile" address=223.122.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=223.123.128.0/17 comment="中国移动"
 add list="ISP_Mobile" address=223.124.0.0/14 comment="中国移动"
 
-# Total entries: 6601
+# Total entries: 6600
