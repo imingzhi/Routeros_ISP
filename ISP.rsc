@@ -1,4 +1,4 @@
-# Generated on 2026-03-07 20:13:09
+# Generated on 2026-03-08 20:13:32
 # This script will auto-remove old entries and add new ones
 
 /ip firewall address-list
@@ -5565,6 +5565,7 @@ add list="ISP_Mobile" address=120.200.0.0/15 comment="中国移动"
 add list="ISP_Mobile" address=120.202.0.0/18 comment="中国移动"
 add list="ISP_Mobile" address=120.202.64.0/22 comment="中国移动"
 add list="ISP_Mobile" address=120.202.68.0/23 comment="中国移动"
+add list="ISP_Mobile" address=120.202.72.0/24 comment="中国移动"
 add list="ISP_Mobile" address=120.202.76.0/22 comment="中国移动"
 add list="ISP_Mobile" address=120.202.104.0/21 comment="中国移动"
 add list="ISP_Mobile" address=120.202.127.0/24 comment="中国移动"
@@ -6598,4 +6599,4 @@ add list="ISP_Mobile" address=223.122.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=223.123.128.0/17 comment="中国移动"
 add list="ISP_Mobile" address=223.124.0.0/14 comment="中国移动"
 
-# Total entries: 6586
+# Total entries: 6587
