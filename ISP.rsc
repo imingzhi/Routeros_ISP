@@ -1,4 +1,4 @@
-# Generated on 2026-05-23 20:37:28
+# Generated on 2026-05-24 20:41:06
 # This script will auto-remove old entries and add new ones
 
 /ip firewall address-list
@@ -627,7 +627,6 @@ add list="ISP_Telecom" address=103.227.206.0/24 comment="中国电信"
 add list="ISP_Telecom" address=103.228.176.0/22 comment="中国电信"
 add list="ISP_Telecom" address=103.232.214.0/24 comment="中国电信"
 add list="ISP_Telecom" address=103.236.248.0/22 comment="中国电信"
-add list="ISP_Telecom" address=103.238.140.0/24 comment="中国电信"
 add list="ISP_Telecom" address=103.242.160.0/22 comment="中国电信"
 add list="ISP_Telecom" address=103.242.170.0/24 comment="中国电信"
 add list="ISP_Telecom" address=103.244.252.0/22 comment="中国电信"
@@ -6589,4 +6588,4 @@ add list="ISP_Mobile" address=223.122.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=223.123.128.0/17 comment="中国移动"
 add list="ISP_Mobile" address=223.124.0.0/14 comment="中国移动"
 
-# Total entries: 6577
+# Total entries: 6576
