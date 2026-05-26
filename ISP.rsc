@@ -1,4 +1,4 @@
-# Generated on 2026-05-25 20:55:44
+# Generated on 2026-05-26 21:26:31
 # This script will auto-remove old entries and add new ones
 
 /ip firewall address-list
@@ -3468,7 +3468,7 @@ add list="ISP_Unicom" address=61.240.110.0/23 comment="中国联通"
 add list="ISP_Unicom" address=61.240.115.0/24 comment="中国联通"
 add list="ISP_Unicom" address=61.240.116.0/22 comment="中国联通"
 add list="ISP_Unicom" address=61.240.120.0/21 comment="中国联通"
-add list="ISP_Unicom" address=61.240.156.0/23 comment="中国联通"
+add list="ISP_Unicom" address=61.240.128.0/19 comment="中国联通"
 add list="ISP_Unicom" address=61.240.163.0/24 comment="中国联通"
 add list="ISP_Unicom" address=61.240.164.0/22 comment="中国联通"
 add list="ISP_Unicom" address=61.240.168.0/22 comment="中国联通"
@@ -3701,7 +3701,12 @@ add list="ISP_Unicom" address=112.64.32.0/22 comment="中国联通"
 add list="ISP_Unicom" address=112.64.45.0/24 comment="中国联通"
 add list="ISP_Unicom" address=112.64.64.0/24 comment="中国联通"
 add list="ISP_Unicom" address=112.64.112.0/22 comment="中国联通"
+add list="ISP_Unicom" address=112.64.199.0/24 comment="中国联通"
+add list="ISP_Unicom" address=112.64.200.0/24 comment="中国联通"
 add list="ISP_Unicom" address=112.64.212.0/22 comment="中国联通"
+add list="ISP_Unicom" address=112.64.235.0/24 comment="中国联通"
+add list="ISP_Unicom" address=112.64.236.0/23 comment="中国联通"
+add list="ISP_Unicom" address=112.64.238.0/24 comment="中国联通"
 add list="ISP_Unicom" address=112.65.0.0/17 comment="中国联通"
 add list="ISP_Unicom" address=112.65.128.0/18 comment="中国联通"
 add list="ISP_Unicom" address=112.65.192.0/19 comment="中国联通"
@@ -6576,4 +6581,4 @@ add list="ISP_Mobile" address=223.122.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=223.123.128.0/17 comment="中国移动"
 add list="ISP_Mobile" address=223.124.0.0/14 comment="中国移动"
 
-# Total entries: 6564
+# Total entries: 6569
