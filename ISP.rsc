@@ -1,4 +1,4 @@
-# Generated on 2026-11-20 01:28:59
+# Generated on 2026-11-21 00:58:51
 # This script will auto-remove old entries and add new ones
 
 /ip firewall address-list
@@ -3918,6 +3918,7 @@ add list="ISP_Unicom" address=116.149.212.0/23 comment="中国联通"
 add list="ISP_Unicom" address=116.149.214.0/24 comment="中国联通"
 add list="ISP_Unicom" address=116.153.0.0/16 comment="中国联通"
 add list="ISP_Unicom" address=116.154.0.0/15 comment="中国联通"
+add list="ISP_Unicom" address=116.157.0.0/16 comment="中国联通"
 add list="ISP_Unicom" address=116.162.38.0/23 comment="中国联通"
 add list="ISP_Unicom" address=116.162.40.0/21 comment="中国联通"
 add list="ISP_Unicom" address=116.162.48.0/20 comment="中国联通"
@@ -6492,4 +6493,4 @@ add list="ISP_Mobile" address=223.122.0.0/16 comment="中国移动"
 add list="ISP_Mobile" address=223.123.128.0/17 comment="中国移动"
 add list="ISP_Mobile" address=223.124.0.0/14 comment="中国移动"
 
-# Total entries: 6480
+# Total entries: 6481
